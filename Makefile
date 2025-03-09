@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp keyboardDigit.cpp keyboardOperation.cpp keyboardCalculator.cpp display.cpp receiver.cpp
+	g++ main.cpp keyboardDigit.cpp keyboardOperation.cpp keyboardCalculator.cpp display.cpp receiver.cpp cpu.cpp
