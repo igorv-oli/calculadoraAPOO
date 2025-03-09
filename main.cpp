@@ -6,12 +6,14 @@
 #include "keyboardOperation.h"
 #include "keyboardCalculator.h"
 #include "display.h"
+#include "receiver.h"
 
 int main() {
     Display *display = new Display();
+    Receiver *receiver = new Receiver(display);
 
-    display->addDigit(Four);
-    display->addOperation(Less);
+    receiver->receiverDigit(Three);
+    receiver->receiverOperation(Multiplication);
 
     return 0;
 
