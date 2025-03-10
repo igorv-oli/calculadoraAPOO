@@ -8,24 +8,24 @@
 #include "display.h"
 #include "receiver.h"
 #include "cpu.h"
+#include "calculator.h"
 
 int main() {
+    KeyboardCalculator *keyboard = new KeyboardCalculator();
     Display *display = new Display();
-    Receiver *receiver = new Receiver(display);
     Cpu *cpu = new Cpu();
+    Calculator *calculator = new Calculator(display, cpu, keyboard);
 
-    Digit n1 = Nine;
-    Digit n2 = Three;
+    Digit n1 = keyboard->pressEight();
+    Digit n2 = keyboard->pressFour();
 
-    Operation op = Multiplication;
+    Operation op1 = keyboard->pressMultiplication();
+    Operation op2 = keyboard->pressEqual();
 
-    float result = cpu->operations(n1, n2, op);
-
-    receiver->receiverDigit(n1);
-    receiver->receiverOperation(op);
-    receiver->receiverDigit(n2);
-    receiver->receiverOperation(Equal);
-    display->show(result);
+    calculator->showDisplay_Numbers(n1);
+    calculator->showDisplay_Operations(op1);
+    calculator->showDisplay_Numbers(n2);
+    calculator->showDisplay_Operations(op2);
 
     return 0;
 
